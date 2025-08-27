@@ -174,7 +174,7 @@ Once your GitHub Actions workflow is configured, you can run it to see WarpBuild
 
 | Workflow | Runner | Avg Build Time | Notes | Visual Representation |
 |----------|--------|----------------|-------|-------|
-| Standard GitHub Actions | `ubuntu-latest` | 27 seconds | Shared runner, manual caching, limited concurrency | [](./static/5.png) |
+| Standard GitHub Actions | `ubuntu-latest` | 27 seconds | Shared runner, manual caching, limited concurrency | <img src="./static/5.png" width="150"/> |
 | WarpBuild Runner | `warp-ubuntu-latest-x64-2x` | 3-5 mins | Ephemeral VM, snapshots + container layer caching, unlimited concurrency |
 
 
