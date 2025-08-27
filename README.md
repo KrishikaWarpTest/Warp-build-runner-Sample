@@ -149,21 +149,13 @@ jobs:
 
 Explore more features: https://docs.warpbuild.com/ci/features
 
-## Step 4: Run Your First Build and Verify Caching Benefits
+## Step 4: Run your workflow
 
-With the workflow configured, push your changes to GitHub. WarpBuild will automatically pick up the workflow and run it on the selected runner.
+Once your GitHub Actions workflow is configured, you can run it to see WarpBuild in action.
 
 Multiple runner configurations are available for different use cases. You can find more details about the runner configurations [here](https://docs.warpbuild.com/ci/what-is-warpbuild#supported-runners).
 
-- Observe the build logs in the WarpBuild dashboard.
-- On the first run, the job sets up the environment, installs dependencies, and builds the Docker image.
-- On subsequent runs, **snapshots and container layer caching** drastically reduce build time.
-
-> 💡 Tip: Use higher capacity runners (`4x`) for very large repositories or workflows that require more compute.  
-
-## Step 5: Run your workflow
-
-Once your GitHub Actions workflow is configured, you can run it to see WarpBuild in action.
+[](./static/4.png)
 
 ### Triggering the Workflow
 
@@ -177,4 +169,10 @@ Once your GitHub Actions workflow is configured, you can run it to see WarpBuild
 | Standard GitHub Actions | `ubuntu-latest` | 27 seconds | Shared runner, manual caching, limited concurrency | <img src="./static/5.png" width="150"/> |
 | WarpBuild Runner | `warp-ubuntu-latest-x64-2x` |  | Ephemeral VM, snapshots + container layer caching, unlimited concurrency |
 
+> 💡 Tip: Use higher capacity runners (`4x`) for very large repositories or workflows that require more compute.  
 
+## Conclusion
+
+WarpBuild provides a high-performance, scalable, and cost-effective CI solution that dramatically speeds up your build and deployment process. By leveraging ephemeral VMs, snapshots, container layer caching, and unlimited concurrency, you can reduce build times, avoid queues, and ensure consistent, isolated environments for your workflows.  
+
+This guide walks you through setting up WarpBuild runners at the organization level, configuring a CI workflow for a simple Flask app, and observing the benefits of caching and faster builds. Once fully configured, you can focus on shipping code faster, while WarpBuild handles the heavy lifting of build infrastructure.
