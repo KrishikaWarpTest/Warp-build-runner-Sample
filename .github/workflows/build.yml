@@ -20,7 +20,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t my-app .
-      - name: Push Docker image to registry
+      - name: Push Docker image to Docker registry
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
