@@ -38,9 +38,7 @@ Basic GitHub Actions Knowledge – familiarity with `.github/workflows/` files.
 - [WarpBuild Account](https://docs.warpbuild.com/ci/what-is-warpbuild)(free tier available)
 
 
-```
-WarpBuild runners must be installed at the organization level in GitHub.
-```
+> ⚠️ WarpBuild runners must be installed at the **organization level**. Personal repositories will **not** work.
 
 ## Step 1: Create a WarpBuild Account
 - Sign up for a WarpBuild account at [https://app.warpbuild.com/](https://app.warpbuild.com/).  
@@ -133,9 +131,10 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-          docker tag my-app my-dockerhub-username/my-app:latest
-          docker push my-dockerhub-username/my-app:latest
+          docker tag my-app <dockerhub-username>/<repository-name>:latest
+          docker push <dockerhub-username>/<repository-name>:latest
 ```
+> ⚠️ Make sure the Docker Hub repository exists, and the secret values DOCKER_USERNAME and DOCKER_PASSWORD are set correctly in your GitHub repo secrets. Use a Docker Hub Access Token instead of your password for security. Replace `<dockerhub-username>` and `<repository-name>` with your actual Docker Hub username and repository name.
 
 ### GitHub Actions vs WarpBuild Runner Comparison
 
@@ -170,5 +169,12 @@ Once your GitHub Actions workflow is configured, you can run it to see WarpBuild
 
 - Push any changes to the `main` branch of your repository.  
 - The workflow will automatically start on the **WarpBuild runner** you selected (`warp-ubuntu-latest-x64-2x`).  
+
+### Build Time Comparison: GitHub Actions vs WarpBuild
+
+| Workflow | Runner | Avg Build Time | Notes | Visual Representation |
+|----------|--------|----------------|-------|-------|
+| Standard GitHub Actions | `ubuntu-latest` | 27 seconds | Shared runner, manual caching, limited concurrency | [](./static/5.png) |
+| WarpBuild Runner | `warp-ubuntu-latest-x64-2x` | 3-5 mins | Ephemeral VM, snapshots + container layer caching, unlimited concurrency |
 
 
