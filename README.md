@@ -155,7 +155,7 @@ Once your GitHub Actions workflow is configured, you can run it to see WarpBuild
 
 Multiple runner configurations are available for different use cases. You can find more details about the runner configurations [here](https://docs.warpbuild.com/ci/what-is-warpbuild#supported-runners).
 
-[](./static/4.png)
+![](./static/4.png)
 
 ### Triggering the Workflow
 
