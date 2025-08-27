@@ -117,7 +117,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -154,22 +154,11 @@ Explore more features: https://docs.warpbuild.com/ci/features
 
 With the workflow configured, push your changes to GitHub. WarpBuild will automatically pick up the workflow and run it on the selected runner.
 
+Multiple runner configurations are available for different use cases. You can find more details about the runner configurations [here](https://docs.warpbuild.com/ci/what-is-warpbuild#supported-runners).
+
 - Observe the build logs in the WarpBuild dashboard.
 - On the first run, the job sets up the environment, installs dependencies, and builds the Docker image.
 - On subsequent runs, **snapshots and container layer caching** drastically reduce build time.
-
-### Available Runners for Larger Repositories
-
-WarpBuild offers multiple runner types to handle larger workloads:
-
-| Runner | Architecture | Description |
-|--------|-------------|-------------|
-| `warp-ubuntu-latest-x64-2x` | x86-64 | Default runner for standard workloads |
-| `warp-ubuntu-latest-x64-4x` | x86-64 | More CPU and memory for bigger repos or parallel jobs |
-| `warp-ubuntu-latest-arm64-2x` | ARM64 | For ARM-based builds |
-| `warp-macos-latest-2x` | macOS ARM64 | For macOS-specific builds (iOS/mac apps) |
-
-Check all the supported runners: https://docs.warpbuild.com/ci/what-is-warpbuild#supported-runners
 
 > 💡 Tip: Use higher capacity runners (`4x`) for very large repositories or workflows that require more compute.  
 
@@ -181,26 +170,5 @@ Once your GitHub Actions workflow is configured, you can run it to see WarpBuild
 
 - Push any changes to the `main` branch of your repository.  
 - The workflow will automatically start on the **WarpBuild runner** you selected (`warp-ubuntu-latest-x64-2x`).  
-
-### Observing the Build
-
-1. Go to the WarpBuild dashboard to monitor the job.  
-2. You will see each step executed:
-   - Checkout code  
-   - Python environment setup  
-   - Dependency installation  
-   - Docker build  
-   - Docker push  
-
-3. On the first run, the VM is initialized and caches are created.  
-4. On subsequent runs, **disk snapshots and container layer caching** drastically reduce build time.  
-
-### Verify Performance Improvements
-
-- Check job start times and duration in the WarpBuild dashboard.  
-- Confirm that caching is being applied (look for cache hit messages).  
-- Note reduced build times compared to standard GitHub runners.  
-
-
 
 
