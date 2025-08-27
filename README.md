@@ -60,7 +60,7 @@ Basic GitHub Actions Knowledge – familiarity with `.github/workflows/` files.
 
 ![](./static/3.png)
 
-# Step 3: Clone the Repo and Set Up the Environment
+# Step 2: Clone the Repo and Set Up the Environment
 
 Let's now configure the WarpBuild runner for our repository, clone it locally, and set up a Python virtual environment.
 
@@ -85,7 +85,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Step 4: Add GitHub Actions Workflow for WarpBuild
+## Step 3: Add GitHub Actions Workflow for WarpBuild
 
 We will now set up a CI workflow to build and push a Docker image using **WarpBuild runners**.  
 
@@ -149,7 +149,7 @@ jobs:
 
 Explore more features: https://docs.warpbuild.com/ci/features
 
-## Step 5: Run Your First Build and Verify Caching Benefits
+## Step 4: Run Your First Build and Verify Caching Benefits
 
 With the workflow configured, push your changes to GitHub. WarpBuild will automatically pick up the workflow and run it on the selected runner.
 
@@ -161,7 +161,7 @@ Multiple runner configurations are available for different use cases. You can fi
 
 > 💡 Tip: Use higher capacity runners (`4x`) for very large repositories or workflows that require more compute.  
 
-## Step 6: Running the Workflow
+## Step 5: Run your workflow
 
 Once your GitHub Actions workflow is configured, you can run it to see WarpBuild in action.
 
